@@ -277,7 +277,7 @@
 
         /**
          * Jumps to a certain frame
-         * @param int frame The frame to jump to
+         * @param frame
          */
         gotoFrame : function(frame){
             var self = this;
@@ -610,6 +610,9 @@
         }
     }
 
+    /**
+     * @param e
+     */
     function stop_movie_event(e){
         clearInterval($(this).data("playingInterval"));
         $(this).find(".jsMovieFrame").hide();
@@ -619,6 +622,9 @@
         $(this).data("playUntil",-1);
     }
 
+    /**
+     * @param e
+     */
     function pause_movie_event(e){
         clearInterval($(this).data("playingInterval"));
     }
@@ -665,7 +671,7 @@
             //verbose
             verboseOut.apply(self,["Image #"+(imageToLoad)+" has been loaded"]);
             refreshLoaderPosition.apply($(self));
-        }
+        };
         curImg.src = $(this).data("settings").folder+$(this).data("settings").images[imageToLoad-1];
         /*FOR THE BROWSERS THAT DON'T JUST PRELOAD ON INSTANTIATION LIKE OPERA,CHROME - THEY ONLY CACHE VISIBLE BACKGROUND IMAGES*/
         $('#jsMovie_image_preload_container').append(curImg);
